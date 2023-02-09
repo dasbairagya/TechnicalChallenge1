@@ -2,6 +2,8 @@
 
 > This application is used to check if the drawn hand contains a straight or a straight flush based on high to low or vice versa.
 
+![localhost-8000](https://user-images.githubusercontent.com/18226897/217870935-b6d23455-6d4f-4738-a762-6367e27c5537.png)
+
 ## Requirements (Prerequisites)
 
 Below tools and packages are required to successfully install this project.
