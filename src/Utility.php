@@ -4,7 +4,7 @@ namespace App;
 /**
  * This file is part of the Technical Challenge 1.
  *
- * @author Anonymus <anonymous@test.com>
+ * @author Gopal Dasbairagya <dasbairagyagopal@gmail.com>
  */
 class Utility
 {

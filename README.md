@@ -86,7 +86,7 @@ e.g.
 
 Code coverage is a metric that can help you understand how much of your source is tested. It's a very useful metric that can help you assess the quality of your test suite.
 
-![coverage-status](https://user-images.githubusercontent.com/18226897/209538265-2026951c-f51a-44bd-8e85-3e4de9f2a1ad.png)
+![Utility-php](https://user-images.githubusercontent.com/18226897/217869334-01321319-f88c-4ff3-b7e1-c394b8251ed0.png)
 
 To generate code coverage report
 
