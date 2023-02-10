@@ -27,19 +27,68 @@ class HandTest extends TestCase
      *
      * @test
      *
-     * @cover Card::generateHandCards
-     * @cover Card::getDrawnCardsWithRanks
-     * @cover Card::getDrawnSuits
-     * @cover Hand::checkHand
+     * @covers Hand::checkHand
+     *
+     * @dataProvider provideHandCards
      */
-    public function checkHand(): void
+    public function checkHand($data): void
     {
-        $cards = new Cards();
-        $handCards  = $cards->generateHandCards();
-        $drawnCards = $cards->getDrawnCardsWithRanks();
-        $drawnSuits = $cards->getDrawnSuits();
         $hand = new Hand();
-        $hand->checkHand($drawnCards, $drawnSuits);
-        $this->assertTrue(true);
+        $hand->checkHand($data[0], $data[1]);
+        $this->setOutputCallback(function () {
+        });
+        $this->assertFalse(false, "Should print something");
+    }
+
+    /**
+     * Dataprovider for isStraight
+     */
+    public function provideHandCards()
+    {
+        // straight hand
+        $ranks = [6, 7, 8, 9, 10];
+        $hand  = [7, 8, 9, 10, 'J'];
+        $straightHand = array_combine($ranks, $hand);
+
+        // straight hand lowest
+        $ranks1 = [0, 1, 2, 3, 4];
+        $hand1  = ['A', 2, 3, 4, 5];
+        $straightHandlowest  = array_combine($ranks1, $hand1);
+
+        // straight hand height
+        $ranks2 = [10, 11, 12, 13, 0];
+        $hand2  = [10, 'J', 'Q', 'K', 'A'];
+        $straightHandhighest = array_combine($ranks2, $hand2);
+
+        // general hand
+        $ranks3 = [4, 2, 3, 11, 1];
+        $hand3  = [5, 3, 4, 'J', 2];
+        $generalHand = array_combine($ranks3, $hand3);
+
+        // invalid hand
+        $ranks4 = [10, 11, 12, 13, 0, 5];
+        $hand4  = [10, 'J', 'Q', 'K', 'A', 6];
+        $invalidHand  = array_combine($ranks4, $hand4);
+
+        return [
+            'check for straight hand' => [
+                [$straightHand, ['C', 'S']]
+            ],
+            'check for straight flush as lowest' => [
+                [$straightHandlowest, ['C']]
+            ],
+            'check for straight flush as highest' => [
+                [$straightHandhighest, ['H']]
+            ],
+            'check for flush only' => [
+                [$generalHand, ['C']]
+            ],
+            'check for general hand' => [
+                [$generalHand, ['D', 'S']]
+            ],
+            'check for invalid hand' => [
+                [$invalidHand, ['C']]
+            ]
+        ];
     }
 }

@@ -70,7 +70,11 @@ in `phpunit.xml` file which is the configuration file for unittesting. It can be
 
 ## Running the unit tests
 
-Describe and show how to run the tests with code examples. Explain how to run the automated tests for this system. Below command is used to run the unit test:
+Describe and show how to run the tests with code examples. Explain how to run the automated tests for this system.
+
+![unit-testing](https://user-images.githubusercontent.com/18226897/218136322-7ea0d8f6-4414-47ea-9996-7bfcabd184db.png)
+
+Below command is used to run the unit test:
 
     $ vendor/bin/phpunit
 
@@ -88,7 +92,7 @@ e.g.
 
 Code coverage is a metric that can help you understand how much of your source is tested. It's a very useful metric that can help you assess the quality of your test suite.
 
-![Utility-php](https://user-images.githubusercontent.com/18226897/217869334-01321319-f88c-4ff3-b7e1-c394b8251ed0.png)
+![coverage-report](https://user-images.githubusercontent.com/18226897/218134961-42c2d9af-6612-46aa-bb97-9276881ed8ea.png)
 
 To generate code coverage report
 

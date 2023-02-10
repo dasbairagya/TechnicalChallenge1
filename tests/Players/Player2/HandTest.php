@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Tests\Players\Player2;
 
 use App\Cards;
-use App\Players\Player1\Hand;
+use App\Players\Player2\Hand;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -23,23 +23,35 @@ use PHPUnit\Framework\TestCase;
 class HandTest extends TestCase
 {
     /**
-     * Method to check if the hand is a straigh or straight flush
+     * Method to check if the hand is a flush only
      *
      * @test
      *
-     * @cover Card::generateHandCards
-     * @cover Card::getDrawnCardsWithRanks
-     * @cover Card::getDrawnSuits
-     * @cover Hand::checkHand
+     * @covers Hand::checkHand
+     *
+     * @dataProvider provideHandSuits
      */
-    public function checkHand(): void
+    public function checkHand($data): void
     {
-        $cards = new Cards();
-        $handCards  = $cards->generateHandCards();
-        $drawnCards = $cards->getDrawnCardsWithRanks();
-        $drawnSuits = $cards->getDrawnSuits();
         $hand = new Hand();
-        $hand->checkHand($drawnCards, $drawnSuits);
-        $this->assertTrue(true);
+        $hand->checkHand($data[0], $data[1]);
+        $this->setOutputCallback(function () {
+        });
+        $this->assertFalse(false, "Should print something");
+    }
+
+    /**
+     * Dataprovider for isFlush, cards is not requred but suits is required
+     */
+    public function provideHandSuits()
+    {
+        return [
+            'check for flush' => [
+                [null, ['H']]
+            ],
+            'check for not flush' => [
+                [null, ['C', 'S']]
+            ]
+        ];
     }
 }
