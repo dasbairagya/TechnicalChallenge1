@@ -1,4 +1,7 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+
 /*
  * This file is part of Technical Challenge 1.
  *
@@ -19,26 +22,22 @@ use App\Interfaces\HandInterface;
  */
 class StraightFlushHandProcessor extends RandomProcessor
 {
-    private  $hand;
-
-    public function __construct( $hand )
+    private $hand;
+    public function __construct($hand)
     {
         $this->hand = $hand;
     }
 
     /**
      * Method to process the straight flush hand
-     * 
+     *
      * @param array $hand, $suits
-     * 
+     *
      * @return void
      */
-    public function process( $cards, $suits ): void
+    public function process($cards, $suits): void
     {
-        $this->printMsg( "<b>Straight Flush checking..</b>" );
-
-        $this->hand->checkHand( $cards, $suits );
-        
+        $this->printMsg("<b>Straight Flush checking..</b>");
+        $this->hand->checkHand($cards, $suits);
     }
-
 }

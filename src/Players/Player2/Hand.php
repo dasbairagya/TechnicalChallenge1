@@ -1,4 +1,7 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+
 /*
  * This file is part of Technical Challenge 1.
  *
@@ -21,22 +24,17 @@ class Hand extends AbstractHand implements IsFlushInterface
 {
     /**
      * Method to check if the hand is a straigh or straight flush
-     * 
+     *
      * @param array $cards, $suits
      */
-    public function checkHand( $cards, $suits ): void
+    public function checkHand($cards, $suits): void
     {
-        $isFlush  = $this->isFlush( $suits );
-
-        if( $isFlush ){
-
-            $this->printMsg( "The hand is a Flush!<br>" );
-
+        $isFlush  = $this->isFlush($suits);
+        if ($isFlush) {
+            $this->printMsg("The hand is a Flush!<br>");
         } else {
-
-            $this->printMsg( "The hand is a general hand!<br>" );
+            $this->printMsg("The hand is a general hand!<br>");
         }
-        
     }
 
     /**
@@ -48,7 +46,6 @@ class Hand extends AbstractHand implements IsFlushInterface
     */
     public function isFlush($suits): bool
     {
-        return Utility::isFlush( $suits );
+        return Utility::isFlush($suits);
     }
-
 }

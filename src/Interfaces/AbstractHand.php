@@ -1,4 +1,7 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+
 /*
  * This file is part of Technical Challenge 1.
  *
@@ -9,20 +12,21 @@
  */
 namespace App\Interfaces;
 
-
 /**
  * Abstract class
  */
-abstract class AbstractHand 
+abstract class AbstractHand
 {
     /**
      * Method to check if the hand is a straigh or straight flush
-     * 
+     *
      * @param array $cards, $suits
      */
-    abstract function checkHand( $cards, $suits ): void;
-
-    public function printMsg( $msg ): void
+    abstract public function checkHand($cards, $suits): void;
+    /**
+     * generic method for printing
+     */
+    public function printMsg($msg): void
     {
         echo " $msg <br> ";
     }

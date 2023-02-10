@@ -1,4 +1,7 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+
 /*
  * This file is part of Technical Challenge 1.
  *
@@ -18,6 +21,5 @@ interface IsStraightInterface
     *
     *@return bool
     */
-   public function isStraight( $cards ): bool;
-
+    public function isStraight($cards): bool;
 }
