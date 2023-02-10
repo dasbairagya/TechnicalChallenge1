@@ -1,4 +1,4 @@
-# PHP Standared Application to create the simple card game
+# PHP Standard Application to create the simple card game
 
 > This application is used to check if the drawn hand contains a straight or a straight flush based on high to low or vice versa.
 
