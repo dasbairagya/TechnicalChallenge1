@@ -27,8 +27,6 @@ foreach ( $handCards as $suit ){
 
 echo $html.'<br>';
 
-
-
 $players = [ 'player1', 'player2' ];
 $player  = $players[0];
 
