@@ -1,4 +1,7 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+
 /*
  * This file is part of Technical Challenge 1.
  *
@@ -23,16 +26,14 @@ class UtilityTest extends TestCase
      * @test
      *
      * @covers App\Utility::isStraight
-     * 
+     *
      * @dataProvider provideHandCards
      */
     public static function isStraight($expectedResult, $cards): void
     {
- 
+
         $actualResult = Utility::isStraight($cards);
-
         self::assertEquals($expectedResult, $actualResult);
-
     }
 
     /**
@@ -40,33 +41,30 @@ class UtilityTest extends TestCase
      */
     public function provideHandCards()
     {
+        // straight hand
         $ranks = [6, 7, 8, 9, 10];
         $hand  = [7, 8, 9, 10, 'J'];
+        $straightHand = array_combine($ranks, $hand);
 
-        $straightHand = array_combine( $ranks, $hand ); // straight hand
-
+        // straight hand lowest
         $ranks1 = [0, 1, 2, 3, 4];
-        // $hand1  = ['A', 1, 2, 3, 4];
         $hand1  = ['A', 2, 3, 4, 5];
+        $straightHandlowest  = array_combine($ranks1, $hand1);
 
-        $straightHandlowest  = array_combine($ranks1, $hand1);  // straight hand lowest
-
+        // straight hand height
         $ranks2 = [10, 11, 12, 13, 0];
         $hand2  = [10, 'J', 'Q', 'K', 'A'];
+        $straightHandhighest = array_combine($ranks2, $hand2);
 
-        $straightHandhighest = array_combine( $ranks2, $hand2 ); // straight hand height
-        
-
+        // general hand
         $ranks3 = [4, 2, 3, 11, 1];
         $hand3  = [5, 3, 4, 'J', 2];
+        $generalHand = array_combine($ranks3, $hand3);
 
-        $generalHand = array_combine( $ranks3, $hand3 ); // general hand
-
-
+        // invalid hand
         $ranks4 = [10, 11, 12, 13, 0, 5];
         $hand4  = [10, 'J', 'Q', 'K', 'A', 6];
-
-        $invalidHand  = array_combine($ranks4, $hand4); // invalid hand
+        $invalidHand  = array_combine($ranks4, $hand4);
 
         return [
             'check for straight hand' => [
@@ -90,7 +88,6 @@ class UtilityTest extends TestCase
                 $invalidHand
             ]
         ];
-
     }
 
     /**
@@ -99,16 +96,13 @@ class UtilityTest extends TestCase
      * @test
      *
      * @covers App\Utility::isFlush
-     * 
+     *
      * @dataProvider provideHandSuits
      */
     public static function isFlush($expectedResult, $suits): void
     {
- 
         $actualResult = Utility::isFlush($suits);
-
         self::assertEquals($expectedResult, $actualResult);
-
     }
 
     /**
@@ -135,14 +129,12 @@ class UtilityTest extends TestCase
      *
      * @covers App\Utility::isFlush
      * @expectedException \Exception
-     * 
+     *
      */
     public function raiseException()
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage("Suits can not be empty!");
         Utility::isFlush([]);
-        
     }
-
 }

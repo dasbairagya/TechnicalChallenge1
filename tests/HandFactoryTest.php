@@ -1,4 +1,7 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+
 /*
  * This file is part of Technical Challenge 1.
  *
@@ -25,20 +28,17 @@ class HandFactoryTest extends TestCase
      * @test
      *
      * @covers App\HandFactory::createHand
-     * 
+     *
      * @expectedException \Exception
      */
     public function createHand(): void
     {
         $obj = 'player1';
         $factory = new HandFactory();
-        $hand = $factory->createHand( $obj );
+        $hand = $factory->createHand($obj);
         $this->assertInstanceOf(AbstractHand::class, $hand);
-
         $obj = 'gopal';
         $this->expectExceptionMessage("A class with name");
-        $factory->createHand( $obj );
-
+        $factory->createHand($obj);
     }
-
 }

@@ -1,4 +1,7 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+
 /*
  * This file is part of Technical Challenge 1.
  *
@@ -21,9 +24,9 @@ class HandTest extends TestCase
 {
     /**
      * Method to check if the hand is a straigh or straight flush
-     * 
+     *
      * @test
-     * 
+     *
      * @cover Card::generateHandCards
      * @cover Card::getDrawnCardsWithRanks
      * @cover Card::getDrawnSuits
@@ -35,11 +38,8 @@ class HandTest extends TestCase
         $handCards  = $cards->generateHandCards();
         $drawnCards = $cards->getDrawnCardsWithRanks();
         $drawnSuits = $cards->getDrawnSuits();
-
         $hand = new Hand();
         $hand->checkHand($drawnCards, $drawnSuits);
         $this->assertTrue(true);
-        
     }
-
 }
