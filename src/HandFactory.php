@@ -17,9 +17,9 @@ use App\Interfaces\AbstractHand;
  */
 class HandFactory 
 {
-    public function createHand($hand = 'player1'): AbstractHand
+    public function createHand( $hand = 'player1' ): AbstractHand
     {
-        $hand = "App\\Players\\". ucwords($hand)."\\Hand";
+        $hand = "App\\Players\\". ucwords( $hand )."\\Hand";
 
         if( !class_exists( $hand ) ){
 

@@ -28,6 +28,7 @@ class Hand extends AbstractHand implements IsStraightInterface, IsFlushInterface
      */
     public function checkHand( $cards, $suits ): void
     {
+        echo "I'm here";
         $isStraight = $this->isStraight( $cards );
         $isFlush    = $this->isFlush( $suits );
 

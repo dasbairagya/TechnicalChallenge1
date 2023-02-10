@@ -36,7 +36,7 @@ class UtilityTest extends TestCase
     }
 
     /**
-     * Dataprovider for hands
+     * Dataprovider for isStraight
      */
     public function provideHandCards()
     {
@@ -111,6 +111,9 @@ class UtilityTest extends TestCase
 
     }
 
+    /**
+     * Dataprovider for isFlush
+     */
     public function provideHandSuits()
     {
         return [
