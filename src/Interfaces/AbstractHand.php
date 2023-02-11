@@ -21,13 +21,8 @@ abstract class AbstractHand
      * Method to check if the hand is a straigh or straight flush
      *
      * @param array $cards, $suits
+     *
+     * @return string
      */
-    abstract public function checkHand($cards, $suits): void;
-    /**
-     * generic method for printing
-     */
-    public function printMsg($msg): void
-    {
-        echo " $msg <br> ";
-    }
+    abstract public function checkHand($cards, $suits): string;
 }

@@ -28,18 +28,11 @@ class Utility
      */
     public static function isStraight($cards): bool
     {
-
         //write the logic for straight hand
 
         if (is_array($cards) && count($cards) != 5) {
             return false;
         }
-
-
-        // ksort($suits); // not required as suits are already key sorted via array_intersect()
-        // echo "ksort <br>";
-        // print_r($cards);
-
 
         // check if hand has an Ace
         if (isset($cards[0])) {
@@ -53,7 +46,6 @@ class Utility
             for ($i = 1; $i < count($cards); $i++) {
                 if (!isset($cards[$firstRank + $i])) {
                 // not a straight i.e general hand
-
                     return false;
                 }
             }
@@ -74,14 +66,14 @@ class Utility
      */
     public static function isFlush($suits): bool
     {
-        //write the logic for straight flush hand
+        //write the logic for flush hand
         if (!empty($suits)) {
             if (count($suits) == 1) {
+                //flush
                 return true;
-            //flush
             } else {
+                //not a flush
                 return false;
-            //not a flush
             }
         } else {
             throw new \InvalidArgumentException('Suits can not be empty!');

@@ -17,23 +17,25 @@ use App\Interfaces\AbstractHand;
 use App\Interfaces\IsFlushInterface;
 
 /**
- * Class Straight to manipulate the straight hand logic
+ * Class Straight to manipulate the flush hand logic
  *
  */
 class Hand extends AbstractHand implements IsFlushInterface
 {
     /**
-     * Method to check if the hand is a straigh or straight flush
+     * Method to check if the hand is a flush
      *
      * @param array $cards, $suits
+     *
+     * @return string
      */
-    public function checkHand($cards, $suits): void
+    public function checkHand($cards, $suits): string
     {
         $isFlush  = $this->isFlush($suits);
         if ($isFlush) {
-            $this->printMsg("The hand is a Flush!<br>");
+            return "The hand is a Flush!";
         } else {
-            $this->printMsg("The hand is a general hand!<br>");
+            return "The hand is a general hand!";
         }
     }
 

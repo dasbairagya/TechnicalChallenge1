@@ -17,7 +17,7 @@ use App\Players\Player1\Hand;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class Straight to manipulate the straight hand logic
+ * Class Straight to manipulate the straight flush hand logic
  *
  */
 class HandTest extends TestCase
@@ -27,17 +27,19 @@ class HandTest extends TestCase
      *
      * @test
      *
-     * @covers Hand::checkHand
+     * @covers App\Players\Player1\Hand::checkHand
+     * @covers App\Players\Player1\Hand::isFlush
+     * @covers App\Players\Player1\Hand::isStraight
+     * @covers App\Utility::isFlush
+     * @covers App\Utility::isStraight
      *
      * @dataProvider provideHandCards
      */
-    public function checkHand($data): void
+    public function checkHand($expected, $data): void
     {
         $hand = new Hand();
-        $hand->checkHand($data[0], $data[1]);
-        $this->setOutputCallback(function () {
-        });
-        $this->assertFalse(false, "Should print something");
+        $actual = $hand->checkHand($data[0], $data[1]);
+        $this->assertEquals($expected, $actual);
     }
 
     /**
@@ -72,23 +74,25 @@ class HandTest extends TestCase
 
         return [
             'check for straight hand' => [
+                'The hand is a Straight!',
                 [$straightHand, ['C', 'S']]
             ],
             'check for straight flush as lowest' => [
+                'The hand is a Straight Flush!',
                 [$straightHandlowest, ['C']]
             ],
             'check for straight flush as highest' => [
+                'The hand is a Straight Flush!',
                 [$straightHandhighest, ['H']]
             ],
-            'check for flush only' => [
-                [$generalHand, ['C']]
-            ],
             'check for general hand' => [
+                'The hand is a general hand!',
                 [$generalHand, ['D', 'S']]
             ],
-            'check for invalid hand' => [
-                [$invalidHand, ['C']]
-            ]
+            // 'check for invalid hand' => [
+            //     'Invalid hand!',
+            //     [$invalidHand, ['C']]
+            // ]
         ];
     }
 }

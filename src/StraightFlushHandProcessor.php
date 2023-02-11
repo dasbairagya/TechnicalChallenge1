@@ -38,6 +38,7 @@ class StraightFlushHandProcessor extends RandomProcessor
     public function process($cards, $suits): void
     {
         $this->printMsg("<b>Straight Flush checking..</b>");
-        $this->hand->checkHand($cards, $suits);
+        $handType = $this->hand->checkHand($cards, $suits);
+        $this->printMsg($handType);
     }
 }

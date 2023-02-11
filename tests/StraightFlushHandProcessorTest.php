@@ -31,11 +31,13 @@ class StraightFlushHandProcessorTest extends TestCase
      * @test
      *
      * @covers App\StraightFlushHandProcessor::process
+     * @covers App\StraightFlushHandProcessor::printMsg
      * @covers App\Cards::generateHandCards
      * @covers App\Cards::getDrawnCardsWithRanks
      * @covers App\Cards::getDrawnSuits
      * @covers App\Cards::getDrawnSuits
-     * @covers RandomProcessor::printMsg
+     * @covers App\Cards::shuffleCards
+     * @covers App\StraightFlushHandProcessor::__construct
      *
      * @return void
      */
@@ -50,7 +52,7 @@ class StraightFlushHandProcessorTest extends TestCase
                        ->method('checkHand')
                        ->with($drawnCards, $drawnSuits);
         $processor = new StraightFlushHandProcessor($mockDependency);
-        $result = $processor->process($drawnCards, $drawnSuits);
+        $processor->process($drawnCards, $drawnSuits);
         $this->setOutputCallback(function () {
         });
         $this->assertFalse(false, "Should print something");

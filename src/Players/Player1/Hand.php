@@ -28,17 +28,24 @@ class Hand extends AbstractHand implements IsStraightInterface, IsFlushInterface
      * Method to check if the hand is a straigh or straight flush
      *
      * @param array $cards, $suits
+     *
+     * @return string
      */
-    public function checkHand($cards, $suits): void
+    public function checkHand($cards, $suits): string
     {
+        // print_r($cards);
+        // var_dump(count($cards));
+        // if (count($cards) != 5) { //@lookup: Cards@81
+        //     return "Invalid hand!";
+        // }
         $isStraight = $this->isStraight($cards);
         $isFlush    = $this->isFlush($suits);
         if ($isStraight && $isFlush) {
-            $this->printMsg("The hand is a Straight Flush!<br>");
+            return "The hand is a Straight Flush!";
         } elseif ($isStraight) {
-            $this->printMsg("The hand is a Straight!<br>");
+            return "The hand is a Straight!";
         } else {
-            $this->printMsg("The hand is a general hand!<br>");
+            return "The hand is a general hand!";
         }
     }
 

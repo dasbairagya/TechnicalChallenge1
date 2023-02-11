@@ -17,7 +17,7 @@ use App\Players\Player2\Hand;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class Straight to manipulate the straight hand logic
+ * Class Straight to manipulate the flush hand logic
  *
  */
 class HandTest extends TestCase
@@ -27,17 +27,17 @@ class HandTest extends TestCase
      *
      * @test
      *
-     * @covers Hand::checkHand
+     * @covers App\Players\Player2\Hand::checkHand
+     * @covers App\Players\Player2\Hand::isFlush
+     * @covers App\Utility::isFlush
      *
      * @dataProvider provideHandSuits
      */
-    public function checkHand($data): void
+    public function checkHand($expected, $data): void
     {
         $hand = new Hand();
-        $hand->checkHand($data[0], $data[1]);
-        $this->setOutputCallback(function () {
-        });
-        $this->assertFalse(false, "Should print something");
+        $actual = $hand->checkHand($data[0], $data[1]);
+        $this->assertEquals($expected, $actual);
     }
 
     /**
@@ -47,9 +47,11 @@ class HandTest extends TestCase
     {
         return [
             'check for flush' => [
+                'The hand is a Flush!',
                 [null, ['H']]
             ],
             'check for not flush' => [
+                'The hand is a general hand!',
                 [null, ['C', 'S']]
             ]
         ];

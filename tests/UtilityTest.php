@@ -31,7 +31,6 @@ class UtilityTest extends TestCase
      */
     public static function isStraight($expectedResult, $cards): void
     {
-
         $actualResult = Utility::isStraight($cards);
         self::assertEquals($expectedResult, $actualResult);
     }
@@ -129,7 +128,6 @@ class UtilityTest extends TestCase
      *
      * @covers App\Utility::isFlush
      * @expectedException \Exception
-     *
      */
     public function raiseException()
     {

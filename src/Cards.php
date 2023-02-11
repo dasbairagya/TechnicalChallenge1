@@ -63,31 +63,28 @@ class Cards
     public function generateHandCards(): array
     {
         $deck = $this->shuffleCards();
-        $draw_counter = 1;
+        $drawCounter = 1;
         $hand = [];
-        while ($draw_counter <= 5) {
+        while ($drawCounter <= 5) {
             $draw = array_pop($deck);
             $hand[] = $this->cards[ $draw / 4 ] . $this->suits[ $draw % 4 ];
             $this->handCard[] = $this->cards[ $draw / 4 ];
             $this->handSuits[$this->suits[ $draw % 4 ]] = $this->suits[ $draw % 4 ];
-            $draw_counter++;
+            $drawCounter++;
         }
-        // $hand['hand'] = $hand;
-        // $hand['hand_card'] = $this->handCard;
-        // $hand['hand_suits'] = $this->handSuits;
         return $hand;
     }
 
     /**
      * Get the actual rank of the drawn card
      *
+     * @todo: Need to optimize as with Hand : QC, 6S, KC, QH, 5S which will return Array ( [4] => 5 [5] => 6 [11] => Q [12] => K )
+     *        for which the count will be 4 hence Utility@33 will always retun false hence it will fail to chek invalid card senarios
      * @return array
      */
     public function getDrawnCardsWithRanks(): array
     {
-        // print_r($this->handCard); //Array ( [0] => 8 [1] => 6 [2] => 6 [3] => 2 [4] => 9 )
-        $result = array_intersect($this->cards, $this->handCard);
-        // print_r($result); //Array ( [1] => 2 [5] => 6 [7] => 8 [8] => 9 )
+        $result = array_intersect($this->cards, $this->handCard); 
         return $result;
     }
 
