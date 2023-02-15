@@ -12,9 +12,21 @@ declare(strict_types=1);
  */
 namespace App\Interfaces;
 
-interface IsFlushInterface
+/**
+ * Generic interface to implements certain rules
+ */
+interface HandInterface
 {
-   /**
+    /**
+    * Returns boolean value based on the provide value
+    *
+    *@param array $cards
+    *
+    *@return bool
+    */
+    public function isStraight($cards): bool;
+
+    /**
     * Returns boolean value based on the provide value
     *
     *@param array $suits

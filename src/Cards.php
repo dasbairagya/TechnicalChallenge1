@@ -60,7 +60,7 @@ class Cards
      *
      * @return array
      */
-    public function generateHandCards(): array
+    public function createHand(): array
     {
         $deck = $this->shuffleCards();
         $drawCounter = 1;
@@ -78,13 +78,11 @@ class Cards
     /**
      * Get the actual rank of the drawn card
      *
-     * @todo: Need to optimize as with Hand : QC, 6S, KC, QH, 5S which will return Array ( [4] => 5 [5] => 6 [11] => Q [12] => K )
-     *        for which the count will be 4 hence Utility@33 will always retun false hence it will fail to chek invalid card senarios
      * @return array
      */
     public function getDrawnCardsWithRanks(): array
     {
-        $result = array_intersect($this->cards, $this->handCard); 
+        $result = array_intersect($this->cards, $this->handCard);
         return $result;
     }
 

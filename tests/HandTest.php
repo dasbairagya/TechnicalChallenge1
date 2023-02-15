@@ -13,25 +13,26 @@ declare(strict_types=1);
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use App\Utility;
+use App\Hand;
 
 /**
  * Test class to verify various scenarios
  */
-class UtilityTest extends TestCase
+class HandTest extends TestCase
 {
     /**
      * Checks whether the hand is a straight hand
      *
      * @test
      *
-     * @covers App\Utility::isStraight
+     * @covers App\Hand::isStraight
      *
      * @dataProvider provideHandCards
      */
     public static function isStraight($expectedResult, $cards): void
     {
-        $actualResult = Utility::isStraight($cards);
+        $hand = new Hand();
+        $actualResult = $hand->isStraight($cards);
         self::assertEquals($expectedResult, $actualResult);
     }
 
@@ -94,13 +95,14 @@ class UtilityTest extends TestCase
      *
      * @test
      *
-     * @covers App\Utility::isFlush
+     * @covers App\Hand::isFlush
      *
      * @dataProvider provideHandSuits
      */
     public static function isFlush($expectedResult, $suits): void
     {
-        $actualResult = Utility::isFlush($suits);
+        $hand = new Hand();
+        $actualResult = $hand->isFlush($suits);
         self::assertEquals($expectedResult, $actualResult);
     }
 
@@ -126,13 +128,14 @@ class UtilityTest extends TestCase
      *
      * @test
      *
-     * @covers App\Utility::isFlush
+     * @covers App\Hand::isFlush
      * @expectedException \Exception
      */
     public function raiseException()
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage("Suits can not be empty!");
-        Utility::isFlush([]);
+        $hand = new Hand();
+        $hand->isFlush([]);
     }
 }

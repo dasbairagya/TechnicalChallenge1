@@ -2,7 +2,7 @@
 
 > This application is used to check if the drawn hand contains a straight or a straight flush based on high to low or vice versa.
 
-![localhost-8000](https://user-images.githubusercontent.com/18226897/217870935-b6d23455-6d4f-4738-a762-6367e27c5537.png)
+![localhost-3000](https://user-images.githubusercontent.com/18226897/219048519-02ebe68e-5cb8-413b-a1d0-aa365e3336ee.png)
 
 ## Requirements (Prerequisites)
 
@@ -72,7 +72,7 @@ in `phpunit.xml` file which is the configuration file for unittesting. It can be
 
 Describe and show how to run the tests with code examples. Explain how to run the automated tests for this system.
 
-![unit-testing](https://user-images.githubusercontent.com/18226897/218136322-7ea0d8f6-4414-47ea-9996-7bfcabd184db.png)
+![unittesting-report](https://user-images.githubusercontent.com/18226897/219049436-3b168341-f327-4da4-93c0-eb9d9b423a77.png)
 
 Below command is used to run the unit test:
 
@@ -92,7 +92,7 @@ e.g.
 
 Code coverage is a metric that can help you understand how much of your source is tested. It's a very useful metric that can help you assess the quality of your test suite.
 
-![coverage-report](https://user-images.githubusercontent.com/18226897/218134961-42c2d9af-6612-46aa-bb97-9276881ed8ea.png)
+![coverage-report](https://user-images.githubusercontent.com/18226897/219048681-b22ccc39-a643-4c2d-964b-5e417119c2db.png)
 
 To generate code coverage report
 
