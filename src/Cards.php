@@ -25,25 +25,29 @@ class Cards
      * @var array
      */
     protected $suits = [ 'C', 'D', 'H', 'S' ];
-/**
+
+    /**
      * Cards
      *
      * @var array
      */
     protected $cards = [ 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K' ];
-/**
+
+    /**
      * Drawn cards
      *
      * @var array
      */
     private $handCard = [];
-/**
+
+    /**
      * Drawn suits
      *
      * @var array
      */
     private $handSuits = [];
-/**
+
+    /**
      * Shuffle the deck of random cards
      *
      * @return array

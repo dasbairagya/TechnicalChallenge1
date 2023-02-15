@@ -13,12 +13,12 @@ declare(strict_types=1);
 namespace App\Interfaces;
 
 /**
- * Generic interface to implements certain rules
+ * Generic interface to implement certain rules
  */
 interface HandInterface
 {
     /**
-    * Returns boolean value based on the provide value
+    * Returns boolean value based on the basis of provided value
     *
     *@param array $cards
     *
@@ -27,7 +27,7 @@ interface HandInterface
     public function isStraight($cards): bool;
 
     /**
-    * Returns boolean value based on the provide value
+    * Returns boolean value based on the basis of provided value
     *
     *@param array $suits
     *

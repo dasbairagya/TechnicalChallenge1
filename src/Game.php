@@ -22,13 +22,29 @@ use App\Hand;
  */
 class Game
 {
-    private $cards;
+    private Cards $cards;
+    private Hand $hand;
 
+    /**
+     * Random handcards
+     *
+     * @var array
+     */
     private array $handCards;
-    private array $drawnCards;
-    private array $drawnSuits;
 
-    private $hand;
+    /**
+     * Drawn cards
+     *
+     * @var array
+     */
+    private array $drawnCards;
+
+    /**
+     * Drawn suits
+     *
+     * @var array
+     */
+    private array $drawnSuits;
 
     public function __construct()
     {
@@ -63,7 +79,7 @@ class Game
      *
      * @return string
      */
-    public function checkHand($cards, $suits): string
+    public function checkHand(array $cards, array $suits): string
     {
         $isStraight = $this->hand->isStraight($cards);
         $isFlush    = $this->hand->isFlush($suits);

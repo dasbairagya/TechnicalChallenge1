@@ -44,13 +44,11 @@ class Hand implements HandInterface
             for ($i = 1; $i < count($cards); $i++) {
                 if (!isset($cards[$firstRank + $i])) {
                 // not a straight i.e general hand
-
                     return false;
                 }
             }
-
+            // Straight
             return true;
-        // Straight
         }
     }
 
